@@ -134,5 +134,16 @@ class FoodPostController extends Controller
         return ResponseFormatter::success($foodPost,'Food Post berhasil diperbarui');
     }
 
+    public function remove(Request $request){
+        try {
+            $foodPost = FoodPost::find($request->id);
+            $foodPost->delete();
+
+            return ResponseFormatter::success([
+                'foodPost' => $foodPost
+            ],'Unggahan makanan berhasil dihapus');
+        } catch (Exception $e) { return ResponseFormatter::error($e->getMessage(), 'Unggahan makanan tidak berhasil dihapus');}
+    }
+
 
 }

@@ -135,7 +135,8 @@ class UserController extends Controller
             $user->profile_photo_path = $file;
             $user->update();
 
-            return ResponseFormatter::success([$file],'File successfully uploaded');
+            return ResponseFormatter::success
+            (['user' => $user],'File successfully uploaded');
         }
     }
 }

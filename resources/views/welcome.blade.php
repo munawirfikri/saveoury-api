@@ -23,7 +23,7 @@
 <body class="antialiased">
 <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0 text-gray-600 dark:text-gray-400 text-center">
     <p class="text-lg">
-        Saveoury: FoodWaste Solution <br><small> Silahkan tambahkan /api/{endpoint} untuk dapat menggunakan API.</small>
+        Saveoury: FoodWaste Solution <br><small> Silahkan tambahkan /api/{endpoint} untuk dapat menggunakan API.</small><br><small><a href="https://play.google.com/store/apps/details?id=com.munawirfikri.saveoury">Klik disini untuk unduh aplikasi android.</a></small>
     </p>
 </div>
 </body>

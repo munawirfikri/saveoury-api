@@ -80,7 +80,7 @@ class FoodPostController extends Controller
         $is_verified = 0;
 
         $validator = Validator::make($request->all(), [
-            'file' => 'required|image|max:2048',
+            'file' => 'required|image|max:8192',
         ]);
 
         if ($validator->fails()) {

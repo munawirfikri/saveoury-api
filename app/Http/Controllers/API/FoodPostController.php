@@ -41,7 +41,7 @@ class FoodPostController extends Controller
 
         if($id_user)
         {
-            $foodPost = FoodPost::query()->where('id_user', $id_user)->join('users', 'foodposts.user_id', '=' , 'users.id')->where('users.city', '=', $location)->orderBy('created_at', 'desc')->select('foodposts.*', 'users.city')->get();
+            $foodPost = FoodPost::query()->where('id_user', $id_user)->join('users', 'foodposts.id_user', '=' , 'users.id')->where('users.city', '=', $location)->orderBy('created_at', 'desc')->select('foodposts.*', 'users.city')->get();
 
             if($foodPost) {
                 return ResponseFormatter::success(
@@ -57,16 +57,16 @@ class FoodPostController extends Controller
             }
         }
 
-        $foodPost = FoodPost::with(['user'])->join('users', 'foodposts.user_id', '=' , 'users.id')->where('users.city', '=', $location)->where('is_verified', true)->orderBy('created_at', 'desc')->select('foodposts.*', 'users.city')->get();
+        $foodPost = FoodPost::with(['user'])->join('users', 'foodposts.id_user', '=' , 'users.id')->where('users.city', '=', $location)->where('is_verified', true)->orderBy('created_at', 'desc')->select('foodposts.*', 'users.city')->get();
 
         if ($food_name)
         {
-            $foodPost = FoodPost::with(['user'])->where('food_name', 'like', '%' . $food_name . '%')->join('users', 'foodposts.user_id', '=' , 'users.id')->where('users.city', '=', $location)->orderBy('created_at', 'desc')->select('foodposts.*', 'users.city')->get();
+            $foodPost = FoodPost::with(['user'])->where('food_name', 'like', '%' . $food_name . '%')->join('users', 'foodposts.id_user', '=' , 'users.id')->where('users.city', '=', $location)->orderBy('created_at', 'desc')->select('foodposts.*', 'users.city')->get();
         }
 
         if ($category)
         {
-            $foodPost = FoodPost::with(['user'])->where('category', 'like', '%' . $category . '%')->join('users', 'foodposts.user_id', '=' , 'users.id')->where('users.city', '=', $location)->orderBy('created_at', 'desc')->select('foodposts.*', 'users.city')->get();
+            $foodPost = FoodPost::with(['user'])->where('category', 'like', '%' . $category . '%')->join('users', 'foodposts.id_user', '=' , 'users.id')->where('users.city', '=', $location)->orderBy('created_at', 'desc')->select('foodposts.*', 'users.city')->get();
         }
 
         return ResponseFormatter::success(
